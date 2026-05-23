@@ -1,0 +1,36 @@
+\section{Introduction}
+\label{sec:intro}
+
+The digital landscape is currently witnessing a convergence of text generation modalities.
+Human communication is no longer confined to traditional keyboard typing; it increasingly involves speech-to-text (ASR) dictation and significant assistance from Large Language Models (LLMs).
+Each of these sources leaves behind unique, systematic artifacts—phonetic errors from dictation, orthographic typos from keyboard proximity, and stylistic signatures from LLMs.
+Understanding these 'modes' of origin is essential for applications ranging from authorship attribution to the development of robust, context-aware error correction systems.
+
+{\bf Why does this research matter?}
+As LLMs are deployed in more critical roles, the ability to interpret and verify the source of text becomes a cornerstone of digital trust.
+Detecting whether a piece of text was dictated or typed can provide crucial context for forensic linguistics, while isolating AI-generated artifacts is vital for maintaining the integrity of human-centric datasets.
+
+{\bf What is the gap in existing work?}
+Current research in text source characterization is largely fragmented.
+One body of work focuses heavily on the binary "Human vs. AI" detection problem \cite{ta2025faid}, while another addresses specific artifacts like ASR error correction \cite{havare2026lost} or stylometric signatures \cite{kumarage2023neural}.
+However, there is a lack of research that generalizes these artifacts into a unified, interpretable 'mode' latent variable.
+Existing models often 'gloss over' subtle phonetic or orthographic differences, failing to leverage the structured nature of these artifacts for source identification.
+
+{\bf Our approach.}
+In this work, we propose to treat the origin mode as a latent variable that can be both explicitly detected and implicitly isolated.
+We construct a composite dataset that represents three primary modes: \aigen, \dictated (simulated via phonetic homophones), and \typed (simulated via keyboard proximity typos).
+We then conduct two experiments: (1) a zero-shot classification task using \gptmini to evaluate explicit detectability, and (2) a latent embedding analysis using \minilm to measure the inherent clustering of modes in the embedding space (see \secref{sec:method}).
+
+
+{\bf Quantitative preview.}
+Our experiments reveal that LLMs possess a moderate capability for zero-shot mode detection, achieving \accuracy accuracy.
+While the model perfectly identifies \aigen text (100\% recall), it completely fails to distinguish \dictated text from \typed or \aigen sources in zero-shot contexts.
+Crucially, our embedding analysis yields a Silhouette Score of \silhouette, confirming that 'mode' is indeed a separable latent variable, with the primary axis of variance (\pcaone) corresponding to the presence and type of text artifacts.
+
+Our main contributions are as follows:
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+    \item We define and formalize the concept of 'mode' as a unified latent variable for text origin characterization.
+    \item We conduct a zero-shot evaluation showing that while \aigen and \typed modes are detectable, phonetic artifacts in \dictated text present a significant challenge for current LLMs.
+    \item We provide empirical evidence that origin mode is captured in standard text embeddings, showing moderate cluster separation.
+    \item We release our composite dataset and experimental framework to facilitate further research into latent mode isolation.
+\end{itemize}

@@ -1,0 +1,37 @@
+\section{Discussion}
+\label{sec:discussion}
+
+The results provide nuanced support for our hypothesis that 'mode' acts as a structured latent variable in text interpretation.
+
+\subsection{Interpretation of Results}
+
+{\bf Detectability vs. Artifact Granularity.}
+The contrast between the high recall for \aigen text and the total failure for \dictated text suggests a hierarchy of artifact saliency.
+LLMs appear highly sensitive to the "cleanliness" and stylistic consistency of AI-generated text.
+However, they struggle to zero-shot distinguish between different types of human errors.
+Phonetic homophones (e.g., "there/their"), while systematic, are likely 'corrected' by the model's internal language prior during the reasoning process, leading it to misidentify \dictated text as either clean (\aigen) or orthographically noisy (\typed).
+
+{\bf Latent Separation.}
+The Silhouette Score of \silhouette and the high variance explained by PC1 (\pcaone) confirm that origin mode is not just a surface artifact but a dimension of variance captured by modern embeddings.
+The primary axis of separation appears to be a "Clean vs. Noisy" dimension.
+The fact that \dictated and \typed modes overlap suggests that separating orthographic from phonetic noise requires more specialized representations or few-shot demonstration to calibrate the model's sensitivity.
+
+\subsection{Limitations}
+
+{\bf Synthetic Error Injection.}
+Our reliance on synthetic homophone and typo injection, while necessary for content control, may introduce artifacts that differ from organic human data.
+Real-world dictation errors often involve more complex ASR artifacts beyond simple homophone substitution.
+
+{\bf Model Scale.}
+The use of \gptmini may have limited the zero-shot reasoning capabilities.
+Larger models like GPT-4o or Claude 3.5 Sonnet might possess the granularity required to detect subtle phonetic artifacts that a smaller model glosses over.
+
+{\bf Sample Size.}
+With 150 total samples, this study acts as a proof-of-concept.
+A larger-scale evaluation across diverse topics and languages is needed to confirm the generalizability of these latent modes.
+
+\subsection{Broader Implications}
+
+The ability to isolate 'mode' as a latent variable has significant implications for forensic linguistics and data curation.
+By identifying the origin mode, systems can adapt their error correction strategies—for instance, using phonetic models for \dictated text and orthographic models for \typed text.
+Furthermore, the isolation of \aigen signatures is vital for detecting model-in-the-loop content in sensitive domains like legal or academic writing.

@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "stages": {
+    "resource_finder": {
+      "success": true,
+      "completion_marker": "/workspaces/llm-reading-modes-30aa-gemini/.resource_finder_complete",
+      "outputs": {
+        "literature_review": "/workspaces/llm-reading-modes-30aa-gemini/literature_review.md",
+        "resources_catalog": "/workspaces/llm-reading-modes-30aa-gemini/resources.md",
+        "papers_dir": "/workspaces/llm-reading-modes-30aa-gemini/papers",
+        "datasets_dir": "/workspaces/llm-reading-modes-30aa-gemini/datasets",
+        "code_dir": "/workspaces/llm-reading-modes-30aa-gemini/code"
+      },
+      "log_file": "/workspaces/llm-reading-modes-30aa-gemini/logs/resource_finder_gemini.log",
+      "transcript_file": "/workspaces/llm-reading-modes-30aa-gemini/logs/resource_finder_gemini_transcript.jsonl",
+      "elapsed_time": 1016.5620894432068
+    },
+    "experiment_runner": {
+      "success": true,
+      "return_code": 0,
+      "elapsed_time": 309.3173563480377,
+      "log_file": "/workspaces/llm-reading-modes-30aa-gemini/logs/execution_gemini.log",
+      "transcript_file": "/workspaces/llm-reading-modes-30aa-gemini/logs/execution_gemini_transcript.jsonl"
+    }
+  },
+  "work_dir": "/workspaces/llm-reading-modes-30aa-gemini"
+}

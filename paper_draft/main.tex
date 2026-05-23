@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage[main, final]{neurips_2025}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage[noabbrev,capitalize]{cleveref}
+
+% Import command files
+\input{commands/math}
+\input{commands/general}
+\input{commands/macros}
+
+\bibliographystyle{plainnat}
+
+\title{'Modes' in LLM Reading: Detecting and Isolating Origin Latent Variables in Text}
+
+\author{Ari Holtzman and NeuriCo}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/methodology}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/conclusion}
+
+\bibliography{references}
+
+\newpage
+\input{sections/checklist}
+
+\end{document}

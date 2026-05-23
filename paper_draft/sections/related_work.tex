@@ -1,0 +1,26 @@
+\section{Related Work}
+\label{sec:related}
+
+Our work draws from several distinct fields: authorship attribution, AI-generated text detection, and speech-to-text error analysis. We position our research as a bridge between these areas by introducing 'mode' as a unified latent variable.
+
+{\bf Authorship Attribution.}
+Traditional authorship attribution focuses on identifying individuals based on stylometric signatures \cite{kumarage2023neural}.
+Recent advances have extended this to Large Language Models, identifying distinct writing styles and signatures inherent to different model architectures \cite{huang2024authorship}.
+While these works focus on {\it who} wrote the text, our work focuses on {\it how} the text was produced (e.g., dictated vs. typed), regardless of the specific author.
+
+{\bf AI-Generated Text Detection.}
+The rapid adoption of LLMs has led to a surge in research on detecting AI-generated text.
+State-of-the-art detectors like FAID \cite{ta2025faid} use contrastive learning to distinguish between human and AI content at fine-grained levels.
+However, these detectors typically treat "human" as a monolithic category.
+Our research decomposes the human category into 'Dictated' and 'Typed' modes, exploring the systematic artifacts that distinguish different human input methods.
+
+{\bf ASR and OCR Artifacts.}
+Forensic linguistics has long recognized that different input technologies leave systematic traces.
+Speech-to-text (ASR) systems are known to produce phonetic errors and homophone substitutions that can derail downstream tasks like code understanding \cite{havare2026lost}.
+Similarly, keyboard typing introduces orthographic errors based on physical key proximity.
+We build on these observations by investigating whether these artifacts are sufficiently structured to be isolated as latent variables in modern embedding spaces.
+
+{\bf Latent Variable Analysis.}
+The conceptualization of language features as latent variables is gaining traction for reasoning optimization and model interpretability \cite{wu2026language}.
+We extend this perspective to the origin of text, testing the hypothesis that 'mode' is a latent variable that modulates the representation of text in high-dimensional embedding spaces.
+Unlike previous work that often requires supervised fine-tuning to isolate such variables, we focus on zero-shot detectability and inherent clustering in pre-trained models.

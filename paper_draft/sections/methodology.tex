@@ -1,0 +1,41 @@
+\section{Methodology}
+\label{sec:method}
+
+We investigate the detectability and latent separation of text origin modes through a two-stage experimental design.
+First, we construct a controlled composite dataset.
+Second, we evaluate zero-shot classification performance and embedding cluster separation.
+
+\subsection{Dataset Preparation}
+\label{subsec:data}
+
+To isolate the 'mode' variable while controlling for content, we generated a balanced composite dataset of 150 samples (50 per mode). We utilized the following sources:
+\begin{itemize}[leftmargin=*]
+    \item \aigen: Samples were drawn from the \textsc{jjz5463} LLM-detection dataset \cite{jjz2024llm}, representing clean, model-generated text.
+    \item \dictated: We simulated dictation artifacts by injecting phonetic homophone substitutions (e.g., "their" for "there") into source human texts, drawing from the \textsc{youngwoo3283} ASR dataset patterns \cite{youngwoo2024asr}.
+    \item \typed: We simulated typing artifacts by injecting keyboard proximity typos (e.g., "o" for "p") using a synthetic typo generator based on the \textsc{guychuk} dataset distributions \cite{guychuk2024typos}.
+\end{itemize}
+By using a common set of English source texts for the human modes, we ensured that the differences observed were primarily due to the input 'mode' rather than topical content.
+
+\subsection{Experiment 1: Zero-Shot Classification}
+\label{subsec:exp1}
+
+{\bf Goal.} To evaluate whether a state-of-the-art LLM can explicitly identify the origin mode based on text artifacts.
+
+{\bf Setup.} We used the \gptmini model via API with temperature set to 0 to ensure deterministic results.
+The model was prompted to act as a forensic linguist and classify each text into one of three categories: \aigen, \dictated, or \typed.
+The prompt provided brief definitions of each mode but included no few-shot examples, testing the model's emergent reasoning about text artifacts.
+
+{\bf Metrics.} We recorded Accuracy, Precision, Recall, and F1-Score for each mode.
+
+\subsection{Experiment 2: Latent Embedding Analysis}
+\label{subsec:exp2}
+
+{\bf Goal.} To determine if origin mode is inherently captured as a separable latent variable in standard text embedding spaces.
+
+{\bf Setup.} We extracted 384-dimensional sentence embeddings for all 150 samples using the \minilm model.
+This model was chosen for its balance of performance and efficiency.
+We analyzed the latent space using Principal Component Analysis (PCA) to identify the primary axes of variance.
+
+{\bf Metrics.} We used the Silhouette Score to measure the separation of clusters in the high-dimensional space.
+A score of 1 indicates perfect separation, 0 indicates overlapping clusters, and -1 indicates incorrect clustering.
+We also calculated the Explained Variance Ratio for the first two principal components.

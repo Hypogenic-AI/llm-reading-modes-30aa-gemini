@@ -1,0 +1,7 @@
+As text generation pipelines become increasingly multimodal, incorporating human typing, speech-to-text dictation, and AI assistance, understanding the artifacts left by different origin 'modes' is critical for forensic linguistics and context-aware error correction.
+We investigate whether Large Language Models (LLMs) can detect these distinct modes and if 'mode' can be isolated as a structured latent variable in text embeddings.
+Using a composite dataset of \aigen, \dictated, and \typed text, we evaluate the zero-shot classification capabilities of \gptmini and analyze latent separation in \minilm embeddings.
+Our results show that while LLMs achieve a moderate zero-shot accuracy of \accuracy, they primarily succeed in identifying \aigen and \typed text but fail to isolate \dictated text containing phonetic homophones.
+Furthermore, we find that text embeddings exhibit a moderate degree of clustering by mode (Silhouette Score: \silhouette), with the first principal component explaining \pcaone of the variance.
+These findings confirm that 'mode' manifests as a detectable latent variable, though distinguishing fine-grained phonetic artifacts remains a challenge for current models in zero-shot settings.
+Our work validates the potential for latent mode isolation and provides a foundation for more robust text source characterization.

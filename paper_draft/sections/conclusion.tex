@@ -1,0 +1,14 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+In this work, we explored the concept of origin 'mode' as a unified latent variable for text source characterization.
+Through experiments with \aigen, \dictated, and \typed text, we demonstrated that while 'mode' is inherently captured in text embeddings with moderate separation (Silhouette Score: \silhouette), current LLMs struggle to zero-shot distinguish between fine-grained human artifacts like phonetic dictation errors and orthographic typing mistakes.
+The high recall for \aigen text confirms that AI-generated signatures are highly detectable, but the confusion between human modes suggests that artifact granularity remains a significant challenge.
+
+{\bf Key Takeaway.}
+Our findings validate that text origin 'mode' acts as a structured latent variable, but its explicit isolation in zero-shot contexts requires models to overcome their internal language priors that tend to 'gloss over' systematic human errors.
+
+{\bf Future Work.}
+Future research should focus on leveraging organic ASR and typing datasets to capture more complex real-world artifacts.
+Additionally, we propose investigating supervised disentanglement techniques, such as FactorVAE, to explicitly separate the 'mode' dimension from content and style in embedding spaces.
+Extending this analysis to few-shot prompting and larger-scale models will also be crucial for reaching human-level granularity in origin mode isolation.
