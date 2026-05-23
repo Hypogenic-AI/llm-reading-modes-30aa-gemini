@@ -1,0 +1,26 @@
+idea:
+  title: '''Modes'' in LLM Reading'
+  domain: artificial_intelligence
+  hypothesis: 'Large language models (LLMs) can detect various ''modes'' in text,
+    such as whether text is dictated, written by another LLM, or influenced by keyboard
+    layout through characteristic mistakes. This research asks: What other ''modes''
+    are LLMs detecting, and can ''mode'' be isolated as a latent variable in LLM interpretation
+    of text?
+
+    '
+  background:
+    description: 'LLMs can tell when you''re dictating. They can tell when another
+      LLM is writing. They can tell what kind of keyboard layout you''re using over
+      enough text by the mistakes you make. What other ''modes'' are LLMs detecting?
+      Can we isolate ''mode'' as a latent variable in LLM interpretation of text?
+
+      '
+  metadata:
+    author: Ari Holtzman
+    source: IdeaHub
+    source_url: https://hypogenic.ai/ideahub/idea/RjfuHaexNEys0O727a4M
+    idea_id: _modes__in_llm_reading_20260523_214738_ed71b5d5
+    created_at: '2026-05-23T21:47:38.472492'
+    status: submitted
+    github_repo_name: llm-reading-modes-30aa-gemini
+    github_repo_url: https://github.com/Hypogenic-AI/llm-reading-modes-30aa-gemini
